@@ -1,4 +1,4 @@
-const socket = io("https://quizium-server-test.onrender.com");
+const socket = io("https://quizium-server.onrender.com");
 
 socket.on("connect", () => {
     console.log("Connecté au serveur avec ID :", socket.id);
