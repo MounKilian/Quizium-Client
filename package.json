@@ -1,0 +1,22 @@
+{
+  "name": "quizium-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MounKilian/Quizium-Client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MounKilian/Quizium-Client/issues"
+  },
+  "homepage": "https://github.com/MounKilian/Quizium-Client#readme",
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
+  }
+}
