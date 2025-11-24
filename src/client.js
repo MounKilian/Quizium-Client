@@ -9,10 +9,10 @@ socket.on("disconnect", () => {
 });
 
 function SendEvent() {
-    socket.emit("sendMessage", "Users : ");
+    socket.emit("sendAnswer1", document.getElementById('rep1').value);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const bouton = document.getElementById('monBouton');
-    bouton.addEventListener('click', SendEvent);
+    const bouton1 = document.getElementById('rep1');
+    bouton1.addEventListener('click', SendEvent);
 });
