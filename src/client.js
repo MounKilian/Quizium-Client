@@ -8,7 +8,7 @@ socket.on("disconnect", () => {
     console.log("Déconnecté du serveur");
 });
 
-socket.on("loadData", (data) => {
+socket.on("loadDataClient", (data) => {
     const buttons = document.querySelectorAll(".answer-btn");
 
     data.forEach((texte, index) => {
@@ -22,7 +22,6 @@ socket.on("loadData", (data) => {
 function sendAnswer(event) {
     const value = event.target.value;
     socket.emit("sendAnswer", value);
-    console.log("Réponse envoyée :", value);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
