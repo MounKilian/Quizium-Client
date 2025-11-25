@@ -1,4 +1,12 @@
-const socket = io("https://quizium-server.onrender.com");
+let userId = localStorage.getItem("userId");
+if (!userId) {
+    userId = crypto.randomUUID(); 
+    localStorage.setItem("userId", userId);
+}
+
+const socket = io("https://quizium-server.onrender.com", {
+    auth: { userId: userId }
+});
 
 socket.on("connect", () => {
     console.log("Connecté au serveur avec ID :", socket.id);
