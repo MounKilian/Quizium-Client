@@ -8,11 +8,25 @@ socket.on("disconnect", () => {
     console.log("Déconnecté du serveur");
 });
 
-function SendEvent() {
-    socket.emit("sendAnswer1", document.getElementById('rep1').value);
+socket.on("loadData", (data) => {
+    const buttons = document.querySelectorAll(".answer-btn");
+
+    data.forEach((texte, index) => {
+        if (buttons[index]) {
+            buttons[index].textContent = texte;
+            buttons[index].value = texte; 
+        }
+    });
+});
+
+function sendAnswer(event) {
+    const value = event.target.value;
+    socket.emit("sendAnswer", value);
+    console.log("Réponse envoyée :", value);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const bouton1 = document.getElementById('rep1');
-    bouton1.addEventListener('click', SendEvent);
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.addEventListener("click", sendAnswer);
+    });
 });
