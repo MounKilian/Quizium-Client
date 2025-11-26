@@ -1,9 +1,9 @@
 function getUserId() {
-    let id = localStorage.getItem("userId");
-    if (!id) {
-        id = crypto.randomUUID();
-        localStorage.setItem("userId", id);
-    }
+    const matches = document.cookie.match(/userId=([^;]+)/);
+    if (matches) return matches[1];
+
+    const id = crypto.randomUUID();
+    document.cookie = `userId=${id}; path=/; max-age=${60*60*24*365}`; // 1 an
     return id;
 }
 
