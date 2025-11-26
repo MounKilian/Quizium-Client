@@ -1,11 +1,14 @@
-let userId = localStorage.getItem("userId");
-if (!userId) {
-    userId = crypto.randomUUID(); 
-    localStorage.setItem("userId", userId);
+function getUserId() {
+    let id = localStorage.getItem("userId");
+    if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem("userId", id);
+    }
+    return id;
 }
 
 const socket = io("https://quizium-server.onrender.com", {
-    auth: { userId: userId }
+    auth: { userId: getUserId() }
 });
 
 socket.on("connect", () => {
