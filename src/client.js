@@ -32,7 +32,7 @@ socket.on("loadDataClient", (data) => {
 
 function sendAnswer(event) {
     const value = event.target.value;
-    socket.emit("sendAnswer", value);
+    socket.emit("sendAnswer", value, socket.auth);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
