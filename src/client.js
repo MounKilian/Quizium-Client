@@ -35,8 +35,18 @@ function sendAnswer(event) {
     socket.emit("sendAnswer", value, socket.auth.userId);
 }
 
+function sendUser(event) {
+    const value = event.target.value;
+    socket.emit("sendUser", value, socket.auth.userId);
+    window.location.href = "pages/jeu.html";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.addEventListener("click", sendAnswer);
+    });
+
+    document.querySelectorAll(".username-btn").forEach(btn => {
         btn.addEventListener("click", sendAnswer);
     });
 });
