@@ -3,7 +3,7 @@ function getUserId() {
     if (matches) return matches[1];
 
     const id = crypto.randomUUID();
-    document.cookie = `userId=${id}; path=/; max-age=${60*60*24*365}`; // 1 an
+    document.cookie = `userId=${id}; path=/; max-age=${60*60*24*365}`;
     return id;
 }
 
@@ -12,7 +12,7 @@ const socket = io("https://quizium-server.onrender.com", {
 });
 
 socket.on("connect", () => {
-    console.log("Connecté au serveur avec ID :", socket.id);
+    console.log("Connecté au server")
 });
 
 socket.on("disconnect", () => {
@@ -35,9 +35,9 @@ function sendAnswer(event) {
     socket.emit("sendAnswer", value, socket.auth.userId);
 }
 
-function sendUser(event) {
-    const value = document.getElementById("username").value;
-    socket.emit("sendUser", value, socket.auth.userId);
+function sendUser() {
+    const username = document.getElementById("username").value;
+    socket.emit("sendUser", username, socket.auth.userId);
     window.location.href = "pages/jeu.html";
 }
 
