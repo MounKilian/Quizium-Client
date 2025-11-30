@@ -47,6 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelectorAll(".username-btn").forEach(btn => {
-        btn.addEventListener("click", sendAnswer);
+        btn.addEventListener("click", sendUser);
     });
 });
