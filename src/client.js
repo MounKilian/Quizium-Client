@@ -38,7 +38,7 @@ function sendAnswer(event) {
 function sendUser() {
     const username = document.getElementById("username").value;
     socket.emit("sendUser", username, socket.auth.userId);
-    window.location.href = "pages/jeu.html";
+    window.location.href = "pages/room.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
