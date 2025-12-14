@@ -30,6 +30,10 @@ socket.on("loadDataClient", (data) => {
     });
 });
 
+socket.on("startGame", () => {
+    window.location.href = "./jeu.html";
+});
+
 function sendAnswer(event) {
     const value = event.target.value;
     socket.emit("sendAnswer", value, socket.auth.userId);
