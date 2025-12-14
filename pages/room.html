@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salle d'attente</title>
+</head>
+
+<body>
+
+    <div class="room-container">
+        <h2>Salle d'attente</h2>
+        <p class="status">En attente des joueurs...</p>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="../src/client.js"></script>
+    <script>
+        socket.on("startGame", () => {
+            window.location.href = "pages/jeu.html";
+        });
+    </script>
+
+</body>
+</html>
