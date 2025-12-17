@@ -30,6 +30,12 @@ socket.on("loadDataClient", (data) => {
     });
 });
 
+socket.on("Client.WaitingRoom", (userid) => {
+    if (socket.auth.userId == userid) {
+        window.location.href = "./attente.html"
+    }
+})
+
 socket.on("startGame", () => {
     window.location.href = "./jeu.html";
 });
